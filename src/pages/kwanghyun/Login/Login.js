@@ -3,12 +3,16 @@ import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 
 function LoginYu() {
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
+  const [userInfo, setUserInfo] = useState({
+    id: "",
+    pw: "",
+  });
+  const { id, pw } = userInfo;
   const navigate = useNavigate();
   const toMain = () => {
     navigate("/main-yu");
   };
+
   return (
     <body>
       <div className="wrapper">
@@ -20,14 +24,24 @@ function LoginYu() {
               className="input-id"
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
-              onChange={(e) => setId(e.target.value)}
+              onChange={(e) =>
+                setUserInfo({
+                  ...userInfo,
+                  id: e.target.value,
+                })
+              }
             />
             <input
               value={pw}
               className="input-password"
               type="password"
               placeholder="비밀번호"
-              onChange={(e) => setPw(e.target.value)}
+              onChange={(e) =>
+                setUserInfo({
+                  ...userInfo,
+                  pw: e.target.value,
+                })
+              }
             />
             <button
               className="login-button"

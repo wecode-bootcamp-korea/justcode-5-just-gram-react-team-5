@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Comment from "../../../components/Comment/Comment";
 import "./Main.scss";
+
 const MainYu = () => {
   const [cmt, setCmt] = useState("");
   const [cmtArr, setCmtArr] = useState([]);
-  const onSubmit = (e) => {
+  const onClick = (e) => {
     e.preventDefault();
     setCmtArr(() => {
       if (cmt.length > 0) {
@@ -14,6 +15,7 @@ const MainYu = () => {
     });
     setCmt("");
   };
+
   return (
     <body>
       <nav>
@@ -27,7 +29,6 @@ const MainYu = () => {
         </div>
         <div className="nav-find">
           <input className="nav-find-search" type="text" placeholder="검색" />
-          <ul className="nav-find-result"></ul>
         </div>
         <div className="nav-icons">
           <img
@@ -117,7 +118,7 @@ const MainYu = () => {
             </div>
             <p className="feeds-comments-updatedtime">42분 전</p>
             <div className="feeds-comments-write">
-              <form className="comment-form" onSubmit={(e) => onSubmit(e)}>
+              <form className="comment-form">
                 <input
                   value={cmt}
                   onChange={(e) => {
@@ -128,6 +129,7 @@ const MainYu = () => {
                   placeholder="댓글 달기..."
                 />
                 <button
+                  onClick={(e) => onClick(e)}
                   style={{ color: cmt.length > 0 ? "#128aed" : "#c8e3fb" }}
                   className="comment-submit"
                   type="submit"
