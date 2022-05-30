@@ -28,10 +28,10 @@ function Feed() {
   };
 
   return (
-    <div className="feeds">
+    <div>
       {feeds.map((feed, num) => {
         return (
-          <article className="feed">
+          <article className="feed" key={num}>
             <header className="feed-header">
               <div className="feed-author">
                 <a href="">

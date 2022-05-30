@@ -8,7 +8,7 @@ function MainKim() {
   return (
     <>
       <Header />
-      <main>
+      <main className="feeds">
         <Feed />
         <Aside />
       </main>
