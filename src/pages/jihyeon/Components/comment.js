@@ -1,14 +1,14 @@
 import React from "react";
 
-function comment({ user, setuser, num, text, settext }) {
+function Comment({ info, num }) {
   return (
     <li key={num}>
       <a className="feed-bold-txt" href="">
-        {user[num]}
+        {info.name}
       </a>
-      <span>{text[num]}</span>
+      <span>{info.content}</span>
     </li>
   );
 }
 
-export default comment;
+export default Comment;

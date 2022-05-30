@@ -1,11 +1,18 @@
-import React, { useState } from "react";
-import Addcomment from "../Components/comment";
+import React, { useEffect, useState } from "react";
+
+import Addfeed from "../Components/Feed";
 import "./Main.scss";
 
 function MainKim() {
-  const [newComment, setNewComment] = useState("");
-  const [commentUser, setCommentUser] = useState(["hiThere", "areYouOkay"]);
-  const [commentText, setCommentText] = useState(["베스킨라빈스 아몬드 봉봉을 좋아합니다🤞", "옆에 침대가 보이니 눕고 싶네요...."]);
+  const [feeds, setFeeds] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/data/commentData.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setFeeds(data);
+      });
+  }, []);
 
   return (
     <div>
@@ -37,107 +44,12 @@ function MainKim() {
           </div>
         </nav>
       </header>
-
       <main className="real-main">
-        <article className="real-main-article">
-          <h1>Your Feed</h1>
-          <header className="feed-header">
-            <div>
-              <a href="">
-                <img className="user-img" src="./images/jihyeon/user_1_img.jpg" alt="유저 이미지" />
-              </a>
-              <a className="feed-bold-txt" href="">
-                rem.jh
-              </a>
-            </div>
-            <button type="button">
-              <i className="fa-solid fa-ellipsis"></i>
-            </button>
-          </header>
-
-          <img className="feed-img" src="./images/jihyeon/post_1.jpg" alt="post" />
-
-          <div className="feed-content">
-            <div className="feed-buttons">
-              <div>
-                <button className="feed-button" type="button">
-                  <i className="fa-regular fa-heart fa-lg"></i>
-                </button>
-                <button type="button">
-                  <i className="fa-regular fa-comment fa-lg"></i>
-                </button>
-                <button type="button">
-                  <i className="fa-regular fa-paper-plane fa-lg"></i>
-                </button>
-              </div>
-              <button type="button">
-                <i className="fa-regular fa-bookmark fa-lg"></i>
-              </button>
-            </div>
-
-            <div className="like">
-              <a href="">
-                <img className="user-img-s" src=".././images/jihyeon/user_2_img.jpg" alt="user profile" />
-              </a>
-              <a className="feed-bold-txt" href="">
-                developer
-              </a>
-              님{" "}
-              <a className="feed-bold-txt" href="">
-                외 <span>10</span>명
-              </a>
-              이 좋아합니다.
-            </div>
-
-            <div className="comment-collection">
-              <ul className="comment-list">
-                {commentUser.map((a, i) => {
-                  return <Addcomment user={commentUser} num={i} text={commentText} />;
-                })}
-              </ul>
-            </div>
-
-            <div className="upload-time">
-              <span>42분</span> 전
-            </div>
-          </div>
-
-          <div className="comment-box">
-            <input
-              className="comment-write"
-              type="text"
-              placeholder="댓글 달기..."
-              onChange={(e) => {
-                setNewComment(e.target.value);
-              }}
-              onKeyUp={(e) => {
-                if (e.keyCode == 13) {
-                  let copyText = [...commentText];
-                  copyText.push(newComment);
-                  setCommentText(copyText);
-
-                  let copyUser = [...commentUser];
-                  copyUser.push("jihyeon-kimy");
-                  setCommentUser(copyUser);
-                }
-              }}
-            />
-            <button
-              className="comment-btn"
-              type="button"
-              onClick={() => {
-                let copyText = [...commentText];
-                copyText.push(newComment);
-                setCommentText(copyText);
-
-                let copyUser = [...commentUser];
-                copyUser.push("jihyeon-kimy");
-                setCommentUser(copyUser);
-              }}>
-              게시
-            </button>
-          </div>
-        </article>
+        <div>
+          {feeds.map((a, i) => {
+            return <Addfeed feed={a} feeds={feeds} setfeeds={setFeeds} num={i} />;
+          })}
+        </div>
 
         <div className="main-right">
           <aside>
