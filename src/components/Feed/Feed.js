@@ -9,17 +9,23 @@ function Feed({ data }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setCmtArr(() => {
+    setCmtArr((prev) => {
       if (cmt.length > 0) {
-        return cmtArr.concat({
-          id,
+        return prev.concat({
+          id: id.current,
           text: cmt,
         });
       }
-      return cmtArr;
+      return prev;
     });
-    id++;
+    id.current++;
     setCmt("");
+  };
+
+  const onRemove = (id) => {
+    setCmtArr((prev) => {
+      return prev.filter((el) => el.id !== id);
+    });
   };
 
   return (
@@ -60,7 +66,7 @@ function Feed({ data }) {
           </div>
         ))}
         {cmtArr.map((el) => (
-          <Comment key={el.id} info={el} />
+          <Comment key={el.id} info={el} onRemove={onRemove} />
         ))}
       </div>
       <div className="main-feed-comment-write">

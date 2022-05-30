@@ -1,22 +1,22 @@
 import React from "react";
-
-function Comment({ info }) {
+import "./Comment.scss";
+function Comment({ info, onRemove }) {
   const userName = "mad0627";
   return (
-    <div
-      style={{
-        marginLeft: 10,
-        marginBottom: 3,
-        width: "400px",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
+    <div className="main-feed-comment-wrapper" style={{}}>
       <div>
         <span style={{ fontWeight: 700, marginRight: 5 }}>{userName}</span>
         <span>{info.text}</span>
       </div>
-      <div>{/* <button onClick={() => onRemove(info.id)}>x</button> */}</div>
+      <div>
+        <button
+          className="main-feed-comment-delete"
+          type="button"
+          onClick={() => onRemove(info.id)}
+        >
+          X
+        </button>
+      </div>
     </div>
   );
 }
