@@ -5,7 +5,7 @@ import "./Feed.scss";
 function Feed({ data }) {
   const [cmt, setCmt] = useState("");
   const [cmtArr, setCmtArr] = useState([]);
-  const id = useRef(0);
+  let id = useRef(0);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +18,7 @@ function Feed({ data }) {
       }
       return cmtArr;
     });
+    id++;
     setCmt("");
   };
 
