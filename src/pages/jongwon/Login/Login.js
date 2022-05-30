@@ -1,30 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
 
 function LoginPark() {
   const navigate = useNavigate();
   const goToMain = () => {
-    navigate("/main");
+    navigate("/main-park");
   };
-  const [userID, setUserID] = useState("");
-  const [userPW, setUserPW] = useState("");
+  const [userId, setUserId] = useState("");
+  const [userPw, setUserPw] = useState("");
   const [isValid, setIsValid] = useState(false);
-
   const validation = () => {
-    if (userID.includes("@") && userPW.length > 7) {
+    if (userId.includes("@") && userPw.length > 7) {
       setIsValid(true);
     } else {
       setIsValid(false);
     }
   };
 
-  const handleIDInput = (event) => {
-    setUserID(event.target.value);
+  const handleId = (event) => {
+    const { value } = event.target;
+    setUserId(value);
   };
-  const handlePWInput = (event) => {
-    setUserPW(event.target.value);
+  const handlePw = (event) => {
+    const { value } = event.target;
+    setUserPw(value);
   };
 
   return (
@@ -37,15 +37,15 @@ function LoginPark() {
               className="username-login"
               type="text"
               placeholder="전화번호,사용자 이름 또는 이메일"
-              onChange={handleIDInput}
               onKeyUp={validation}
+              onChange={handleId}
             />
             <input
               className="password"
               type="password"
               placeholder="비밀번호"
-              onChange={handlePWInput}
               onKeyUp={validation}
+              onChange={handlePw}
             />
           </div>
           <input

@@ -1,6 +1,38 @@
+/* eslint-disable jsx-a11y/alt-text */
 import "./Main.scss";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Feeds from "./Feeds";
+import Comments from "./Comments";
 function MainPark() {
+  const [feeds, setFeeds] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/data/data.json")
+      .then((res) => res.json())
+      .then((res) => setFeeds(res));
+  }, []);
+
+  const [commentlist, setCommentlist] = useState([
+    { userName: "chubbychubby", content: "귀여워잉" },
+  ]);
+  const [inputText, setInputText] = useState("");
+  const [isValid, setIsValid] = useState(false);
+
+  const handleInputText = (event) => {
+    const { value } = event.target;
+    setInputText(value);
+  };
+  const commentValidation = () => {
+    if (!(inputText === "")) {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
+  };
+  const uploadComment = () => {
+    setCommentlist([...commentlist, { name: "2seul2", content: inputText }]);
+    setInputText("");
+    setIsValid(false);
+  };
   return (
     <div className="Main">
       <nav>
@@ -70,13 +102,6 @@ function MainPark() {
                 <div className="comment-wrapper">
                   <div className="commentlist">
                     <div className="comment-content-wrapper">
-                      <p className="username-content">
-                        <span className="username">real9 </span> 사랑하는거
-                        알지?
-                      </p>
-                      <i className="fa-regular fa-heart"></i>
-                    </div>
-                    <div className="comment-content-wrapper">
                       <div className="username-content">
                         <span className="username">real9 </span> 사랑하는거
                         알지?
@@ -84,6 +109,16 @@ function MainPark() {
                       <i className="fa-regular fa-heart"></i>
                     </div>
                   </div>
+                  {commentlist.map((oneComment) => {
+                    return (
+                      <Comments
+                        key={oneComment.id}
+                        userName={oneComment.name}
+                        content={oneComment.content}
+                        isLiked={oneComment.isLiked}
+                      />
+                    );
+                  })}
                 </div>
                 <div className="description">1시간전</div>
               </div>
@@ -93,10 +128,35 @@ function MainPark() {
                 className="makecomment-box"
                 type="text"
                 placeholder="댓글달기..."
+                onChange={handleInputText}
+                onKeyUp={commentValidation}
+                value={inputText}
               />
-              <input className="publish-button" type="button" value="게시" />
+              <input
+                className="publish-button"
+                type="button"
+                value="게시"
+                disabled={isValid ? false : true}
+                style={{ opacity: isValid ? "1" : "0.2" }}
+                onClick={uploadComment}
+              />
             </div>
           </article>
+          {feeds.map((feed) => {
+            return (
+              <Feeds
+                key={feed.id}
+                userImage={feed.user.image}
+                userName={feed.user.name}
+                feedImage={feed.feedImage}
+                likes={feed.likeUser.likes}
+                whoLiked={feed.likeUser.name}
+                likedImage={feed.likeUser.Image}
+                content={feed.content}
+                commentList={feed.commentList}
+              />
+            );
+          })}
         </div>
         <div className="wrapper">
           <div className="first">
