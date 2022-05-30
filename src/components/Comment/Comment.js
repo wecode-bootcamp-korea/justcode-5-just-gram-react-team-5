@@ -6,7 +6,7 @@ function Comment({ info }) {
     <div
       style={{
         marginLeft: 10,
-        marginBottom: 5,
+        marginBottom: 3,
         width: "400px",
         display: "flex",
         justifyContent: "space-between",
@@ -14,7 +14,7 @@ function Comment({ info }) {
     >
       <div>
         <span style={{ fontWeight: 700, marginRight: 5 }}>{userName}</span>
-        <span>{info}</span>
+        <span>{info.text}</span>
       </div>
       <div>{/* <button onClick={() => onRemove(info.id)}>x</button> */}</div>
     </div>

@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Comment from "../Comment/Comment";
 import "./Feed.scss";
 
 function Feed({ data }) {
   const [cmt, setCmt] = useState("");
   const [cmtArr, setCmtArr] = useState([]);
+  const id = useRef(0);
 
   const onSubmit = (e) => {
     e.preventDefault();
     setCmtArr(() => {
       if (cmt.length > 0) {
-        return cmtArr.concat(cmt);
+        return cmtArr.concat({
+          id,
+          text: cmt,
+        });
       }
       return cmtArr;
     });
@@ -54,8 +58,8 @@ function Feed({ data }) {
             <span>{el.content}</span>
           </div>
         ))}
-        {cmtArr.map((el, index) => (
-          <Comment key={index} info={el} />
+        {cmtArr.map((el) => (
+          <Comment key={el.id} info={el} />
         ))}
       </div>
       <div className="main-feed-comment-write">
