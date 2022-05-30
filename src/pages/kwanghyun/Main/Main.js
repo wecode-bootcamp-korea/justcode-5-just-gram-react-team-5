@@ -1,20 +1,23 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Comment from "../../../components/Comment/Comment";
+import Feed from "../../../components/Feed/Feed";
 import "./Main.scss";
 
 const MainYu = () => {
-  const [cmt, setCmt] = useState("");
-  const [cmtArr, setCmtArr] = useState([]);
-  const onClick = (e) => {
-    e.preventDefault();
-    setCmtArr(() => {
-      if (cmt.length > 0) {
-        return [...cmtArr].concat(cmt);
-      }
-      return [...cmtArr];
-    });
-    setCmt("");
-  };
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await (
+        await fetch("http://localhost:3000/data/data.json")
+      ).json();
+
+      setData(result);
+      setIsLoading(false);
+    };
+    fetchData();
+  }, []);
 
   return (
     <body>
@@ -66,79 +69,7 @@ const MainYu = () => {
 
       <main>
         <div className="feeds">
-          <article>
-            <div className="feeds-header">
-              <div className="feeds-header-user">
-                <img src="images/kwanghyun/a.jpg" alt="user images" />
-                <span className="user-id">canon_mj</span>
-              </div>
-              <div className="elipsis">
-                <i className="fa-solid fa-ellipsis"></i>
-              </div>
-            </div>
-            <img
-              className="feeds-image"
-              src="images/kwanghyun/b.jpg"
-              alt="feed images"
-            />
-            <div className="feeds-icons">
-              <div className="feeds-icons-left">
-                <i className="fa-solid fa-heart"></i>
-                <i className="fa-regular fa-comment"></i>
-                <i className="fa-solid fa-up-right-from-square"></i>
-              </div>
-              <div className="feeds-icons-right">
-                <i className="fa-regular fa-bookmark"></i>
-              </div>
-            </div>
-            <div className="feeds-likes">
-              <img src="images/kwanghyun/d.jpg" alt="user photos" />
-              <p>
-                <span>ainworld</span>님 <span>외 10명</span>이 좋아합니다
-              </p>
-            </div>
-            <div className="feeds-comments">
-              <div className="feeds-comments-comment">
-                <span>canon_mj</span>
-                <p>위워크에서 진행한 베이킹 클래스..</p>
-                <span className="more">더 보기..</span>
-              </div>
-              <div className="feeds-comments-comment-second">
-                <div className="feeds-comments-comment-left">
-                  <span>ygh0627</span>
-                  <p>거봐 좋았잖아</p>
-                </div>
-                <div className="feeds-comments-comment-right">
-                  <i className="fa-regular fa-heart heart"></i>
-                </div>
-              </div>
-              {cmtArr.map((el, index) => (
-                <Comment key={index} text={el} />
-              ))}
-            </div>
-            <p className="feeds-comments-updatedtime">42분 전</p>
-            <div className="feeds-comments-write">
-              <form className="comment-form">
-                <input
-                  value={cmt}
-                  onChange={(e) => {
-                    setCmt(e.target.value);
-                  }}
-                  className="comment-input"
-                  type="text"
-                  placeholder="댓글 달기..."
-                />
-                <button
-                  onClick={(e) => onClick(e)}
-                  style={{ color: cmt.length > 0 ? "#128aed" : "#c8e3fb" }}
-                  className="comment-submit"
-                  type="submit"
-                >
-                  게시
-                </button>
-              </form>
-            </div>
-          </article>
+          {!isLoading && data.map((el) => <Feed key={el.id} data={el} />)}
         </div>
 
         <div className="main-right">

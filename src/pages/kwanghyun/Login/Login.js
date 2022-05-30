@@ -8,6 +8,7 @@ function LoginYu() {
     pw: "",
   });
   const { id, pw } = userInfo;
+
   const navigate = useNavigate();
   const toMain = () => {
     navigate("/main-yu");

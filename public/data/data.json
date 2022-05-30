@@ -1,0 +1,230 @@
+[
+  {
+    "id": 1,
+    "user": {
+      "name": "sophie_0527",
+      "image": "https://images.unsplash.com/photo-1653604212161-b50f445f7987?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    "feedImage": "https://images.unsplash.com/photo-1653573347632-e6f09b501f37?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "isLiked": true,
+    "likeUser": {
+      "name": "ted_123",
+      "image": "https://images.unsplash.com/photo-1653571764536-0871291303f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=60",
+      "likes": 30
+    },
+    "date": "2022-05-27 18:41",
+    "content": "Welcome to world best coding bootcamp!",
+    "commentList": [
+      {
+        "id": 1,
+        "name": "wecode12",
+        "content": "Hi!",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "name": "applepie",
+        "content": "beautiful world!",
+        "isLiked": true
+      },
+      {
+        "id": 3,
+        "name": "justcode",
+        "content": "justcode bootcamp",
+        "isLiked": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "user": {
+      "name": "aaa_1",
+      "image": "https://images.unsplash.com/photo-1653604212161-b50f445f7987?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    "feedImage": "https://images.unsplash.com/photo-1653478986501-61b22a3362ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "isLiked": true,
+    "likeUser": {
+      "name": "bbb_234",
+      "image": "https://images.unsplash.com/photo-1653580137336-8bf40907aba4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      "likes": 25
+    },
+    "date": "2022-05-29 18:41",
+    "content": "Hi there.",
+    "commentList": [
+      {
+        "id": 1,
+        "name": "joonsikyang",
+        "content": "Hi there.",
+        "isLiked": false
+      },
+      {
+        "id": 2,
+        "name": "applepie",
+        "content": "beautiful world!",
+        "isLiked": true
+      },
+      {
+        "id": 3,
+        "name": "codekunst",
+        "content": "Nice to meet you",
+        "isLiked": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "user": {
+      "name": "dearandmood88",
+      "image": "https://images.unsplash.com/photo-1653507295257-dd9f52b4ecdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+    },
+    "feedImage": "https://images.unsplash.com/photo-1653552390829-e716cc925d11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2OHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "isLiked": true,
+    "likeUser": {
+      "name": "love_sori",
+      "image": "https://images.unsplash.com/photo-1653571764536-0871291303f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=60",
+      "likes": 48
+    },
+    "date": "2022-05-27 18:41",
+    "content": "저의 베스킨라빈스 최애는 아몬드봉봉입니다!!",
+    "commentList": [
+      {
+        "id": 1,
+        "name": "jayPark",
+        "content": "Hey.",
+        "isLiked": false
+      },
+      {
+        "id": 2,
+        "name": "applepie",
+        "content": "beautiful world!",
+        "isLiked": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "user": {
+      "name": "joy.shopping",
+      "image": "https://images.unsplash.com/photo-1653525105488-1a6ff0d7157f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    "feedImage": "https://images.unsplash.com/photo-1653422606539-196c0328b51a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "isLiked": true,
+    "likeUser": {
+      "name": "codecode",
+      "image": "https://images.unsplash.com/photo-1653581102720-3f02417005d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      "likes": 52
+    },
+    "date": "2022-04-27 19:41",
+    "content": "드디어 금요일이네요!!!!!! 끼야호",
+    "commentList": [
+      {
+        "id": 1,
+        "name": "justcode",
+        "content": "Welcome to online coding bootcamp!",
+        "isLiked": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "user": {
+      "name": "happy_hoho",
+      "image": "https://images.unsplash.com/photo-1640197739059-99c8d23d9f99?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MzZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    "feedImage": "https://images.unsplash.com/photo-1645624850219-eb4b4985680c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "isLiked": true,
+    "likeUser": {
+      "name": "jid151",
+      "image": "https://images.unsplash.com/photo-1653566031629-487b65dd48e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      "likes": 25
+    },
+    "date": "2019-05-27 18:41",
+    "content": "hey where you going?",
+    "commentList": []
+  },
+  {
+    "id": 6,
+    "user": {
+      "name": "code_hi",
+      "image": "https://images.unsplash.com/photo-1523606772308-64a28db0ef2c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928"
+    },
+    "feedImage": "https://images.unsplash.com/photo-1601505804121-45e2c5506c94?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774",
+    "isLiked": true,
+    "likeUser": {
+      "name": "catlovers202",
+      "image": "https://images.unsplash.com/photo-1653471207475-4d4f62e16814?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+      "likes": 77
+    },
+    "date": "2022-03-10 18:41",
+    "content": "way too good",
+    "commentList": []
+  },
+  {
+    "id": 7,
+    "user": {
+      "name": "msg_825",
+      "image": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770"
+    },
+    "feedImage": "https://images.unsplash.com/photo-1647891941746-fe1d53ddc7a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+    "isLiked": true,
+    "likeUser": {
+      "name": "jennierubyjane",
+      "image": "https://images.unsplash.com/photo-1653587091419-ddcbdd574b80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+      "likes": 50
+    },
+    "date": "2018-08-27 18:41",
+    "content": "안녕~~ 반가워~",
+    "commentList": []
+  },
+  {
+    "id": 8,
+    "user": {
+      "name": "roses_are_rosie",
+      "image": "https://images.unsplash.com/photo-1587502537745-84b86da1204f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MTV8fGF1dHVtbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600"
+    },
+    "feedImage": "https://images.unsplash.com/photo-1588869436129-c4af64deebb5?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=722",
+    "isLiked": true,
+    "likeUser": {
+      "name": "hihi_h",
+      "image": "https://images.unsplash.com/photo-1653569511862-8a0320ae66cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+      "likes": 35
+    },
+    "date": "2021-09-27 18:41",
+    "content": "some thrillifying news :)",
+    "commentList": []
+  },
+  {
+    "id": 9,
+    "user": {
+      "name": "ccc_456",
+      "image": "https://images.unsplash.com/photo-1653504387573-fe71842da6a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+    },
+    "feedImage": "https://images.unsplash.com/photo-1653507306258-54cae4a48669?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "isLiked": true,
+    "likeUser": {
+      "name": "fff_257",
+      "image": "https://images.unsplash.com/photo-1653582482481-b8b34d824629?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+      "likes": 70
+    },
+    "date": "2022-05-27 18:41",
+    "content": "Wow!",
+    "commentList": []
+  },
+  {
+    "id": 10,
+    "user": {
+      "name": "ddd_789",
+      "image": "https://images.unsplash.com/photo-1653558959647-d9f63ae9cf07?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+    },
+    "feedImage": "https://images.unsplash.com/photo-1653496630714-228a2eb19c08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0OHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    "isLiked": true,
+    "likeUser": {
+      "name": "ggg_267",
+      "image": "https://images.unsplash.com/photo-1653594964387-a26001bc8921?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+      "likes": 65
+    },
+    "date": "2020-06-27 13:41",
+    "content": "Good!",
+    "commentList": []
+  }
+]
