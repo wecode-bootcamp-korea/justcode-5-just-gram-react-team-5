@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import Addcomment from "../Components/comment";
 import "./Main.scss";
 
 function MainKim() {
+  const [newComment, setNewComment] = useState("");
+  const [commentUser, setCommentUser] = useState(["hiThere", "areYouOkay"]);
+  const [commentText, setCommentText] = useState(["베스킨라빈스 아몬드 봉봉을 좋아합니다🤞", "옆에 침대가 보이니 눕고 싶네요...."]);
+
   return (
     <div>
       <header className="main-header">
@@ -86,18 +91,9 @@ function MainKim() {
 
             <div className="comment-collection">
               <ul className="comment-list">
-                <li>
-                  <a className="feed-bold-txt" href="">
-                    hiThere
-                  </a>
-                  <span>베스킨라빈스 아몬드 봉봉을 좋아합니다🤞</span>
-                </li>
-                <li>
-                  <a className="feed-bold-txt" href="">
-                    areYouOkay
-                  </a>
-                  <span>옆에 침대가 보이니 눕고 싶네요....</span>
-                </li>
+                {commentUser.map((a, i) => {
+                  return <Addcomment user={commentUser} num={i} text={commentText} />;
+                })}
               </ul>
             </div>
 
@@ -107,8 +103,37 @@ function MainKim() {
           </div>
 
           <div className="comment-box">
-            <input className="comment-write" type="text" placeholder="댓글 달기..." />
-            <button className="comment-btn" type="button">
+            <input
+              className="comment-write"
+              type="text"
+              placeholder="댓글 달기..."
+              onChange={(e) => {
+                setNewComment(e.target.value);
+              }}
+              onKeyUp={(e) => {
+                if (e.keyCode == 13) {
+                  let copyText = [...commentText];
+                  copyText.push(newComment);
+                  setCommentText(copyText);
+
+                  let copyUser = [...commentUser];
+                  copyUser.push("jihyeon-kimy");
+                  setCommentUser(copyUser);
+                }
+              }}
+            />
+            <button
+              className="comment-btn"
+              type="button"
+              onClick={() => {
+                let copyText = [...commentText];
+                copyText.push(newComment);
+                setCommentText(copyText);
+
+                let copyUser = [...commentUser];
+                copyUser.push("jihyeon-kimy");
+                setCommentUser(copyUser);
+              }}>
               게시
             </button>
           </div>
