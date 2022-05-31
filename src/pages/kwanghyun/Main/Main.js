@@ -1,23 +1,40 @@
-import { useEffect, useRef, useState } from "react";
-import Comment from "../../../components/Comment/Comment";
+import { useEffect, useState } from "react";
 import Feed from "../../../components/Feed/Feed";
 import "./Main.scss";
 
 const MainYu = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(2);
+  console.log(isLoading, page);
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       const result = await (
         await fetch("http://localhost:3000/data/data.json")
       ).json();
-
-      setData(result);
+      setData(result.slice(0, page));
       setIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [page]);
+
+  const handleScroll = () => {
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollTop = document.documentElement.scrollTop;
+    const clientHeight = document.documentElement.clientHeight;
+    if (scrollTop + clientHeight >= scrollHeight && page <= 8) {
+      setPage((prev) => prev + 2);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
 
   return (
     <body>
