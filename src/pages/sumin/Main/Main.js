@@ -68,7 +68,7 @@ function MainSeo() {
           </div>
         </div>
       </header>
-      <main className="main">
+      <main className="main-feed__wrapper">
         <section className="main-feed">
           {feeds.map((data) => {
             return <Feed key={data.id} data={data} />;

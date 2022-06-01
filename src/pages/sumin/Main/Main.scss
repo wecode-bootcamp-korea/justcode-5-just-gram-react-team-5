@@ -108,7 +108,7 @@ $border-style: 1px solid #e6e6e6;
 }
 
 /* ------------------------- main ---- */
-.main {
+.main-feed__wrapper {
   @include flex-space-between;
   width: 935px;
   margin: 120px auto;
@@ -238,9 +238,9 @@ $border-style: 1px solid #e6e6e6;
 }
 
 .sidebar__common {
+  width: 310px;
   margin-top: 10px;
   padding: 10px;
-  width: 310px;
   background-color: #fff;
 
   ul {

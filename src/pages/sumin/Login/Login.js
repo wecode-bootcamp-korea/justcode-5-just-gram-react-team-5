@@ -1,35 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.scss";
 
 function LoginSeo() {
   const navigate = useNavigate();
-  const [userId, setUserId] = useState("");
-  const [userPw, setUserPw] = useState("");
-
   const moveToMain = () => {
     navigate("/main-seo");
   };
 
-  function handleIdInput(event) {
-    setUserId(event.target.value);
-  }
+  const [inputs, setInputs] = useState({
+    userId: "",
+    userPw: "",
+  });
 
-  function handlePwInput(event) {
-    setUserPw(event.target.value);
-  }
+  const { userId, userPw } = inputs;
+
+  const handleInputs = (event) => {
+    const { name, value } = event.target;
+
+    setInputs((prevInputs) => ({
+      ...prevInputs,
+      [name]: value,
+    }));
+  };
 
   const validation = (textId, textPw) => {
-    if (!textId.includes("@")) {
-      return false;
-    }
-    if (textPw.length < 6) {
+    if (!textId.includes("@") || textPw.length < 6) {
       return false;
     }
     return true;
   };
 
   const inputValid = validation(userId, userPw);
+
+  // 비활성화 signUp();
+  const signUp = () => {
+    fetch("http://52.79.143.176:8000/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: userId,
+        password: userPw,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => console.log("결과 : ", result));
+  };
+  /////
 
   return (
     <section className="Login login__wrapper">
@@ -45,7 +64,7 @@ function LoginSeo() {
               className="login__id"
               placeholder="전화번호, 사용자 이름 또는 이메일"
               value={userId}
-              onChange={handleIdInput}
+              onChange={handleInputs}
             />
           </div>
           <div className="login__pw-box">
@@ -55,13 +74,13 @@ function LoginSeo() {
               className="login__pw"
               placeholder="비밀번호"
               value={userPw}
-              onChange={handlePwInput}
+              onChange={handleInputs}
             />
           </div>
           <button
             className={inputValid ? "login__btn-active" : "login__btn-inactive"}
             disabled={!inputValid}
-            onClick={moveToMain}
+            onClick={moveToMain} // onClick={signUp}
           >
             로그인
           </button>
