@@ -4,10 +4,11 @@
 
 > React로 만든 인스타그램 클론 코딩 프로젝트
 ## 🖥  프로젝트 
+<p align="center">
+<img alt="[로그인이미지]" src ="https://ifh.cc/g/T0yYTA.jpg" style = "width: 500px">
 
-![로그인이미지](https://media.giphy.com/media/XZrrnWofNbQzj3ygNc/giphy.gif)
+<img alt="[메인페이지]" src ="https://ifh.cc/g/rnWA1g.jpg"> </p>
 
-![메인페이지](https://media.giphy.com/media/eKJF5Ekz1xZZ05wK9p/giphy.gif)
 
 - **주제**: React를 사용한 Instagram clone
 
@@ -42,9 +43,10 @@
 - React
 - SCSS
 
-## 📕 팀원별 프로젝트 후기
+## 📕 팀원정보
 
-- 강예지 : [예지님 블로그](https://velog.io/@yejikang/westagram-인스타그램-클론코딩-후기)
-- 김동호: [동호님 블로그](http://psy082.github.io/)
-- 송다슬: [다슬님 블로그](http://aleatorik.github.io/)
-- 유휘찬: [휘찬님 블로그](https://velog.io/@dbgnlcks34/Instagram-clone-miniproject-Westagram)
+- 박종원 : [종원님 블로그](https://velog.io/@yejikang/westagram-인스타그램-클론코딩-후기)
+- 서수민 : [수민님 블로그](http://psy082.github.io/)
+- 김지현 : [지현님 블로그](http://aleatorik.github.io/)
+- 손소희 : [소희님 블로그](https://velog.io/@dbgnlcks34/Instagram-clone-miniproject-Westagram)
+- 유광현 : [광현님 블로그](https://velog.io/@yejikang/westagram-인스타그램-클론코딩-후기)
