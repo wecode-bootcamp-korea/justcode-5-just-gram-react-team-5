@@ -34,7 +34,11 @@ function LoginYu() {
       }),
     })
       .then((response) => response.json())
-      .then((result) => console.log("결과: ", result));
+      .then((result) => {
+        if (result.token) {
+          toMain();
+        }
+      });
   };
 
   return (

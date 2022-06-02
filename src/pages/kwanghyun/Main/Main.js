@@ -6,7 +6,6 @@ const MainYu = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(2);
-  console.log(isLoading, page);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,21 +19,23 @@ const MainYu = () => {
     fetchData();
   }, [page]);
 
-  const handleScroll = () => {
-    const scrollHeight = document.documentElement.scrollHeight;
-    const scrollTop = document.documentElement.scrollTop;
-    const clientHeight = document.documentElement.clientHeight;
-    if (scrollTop + clientHeight >= scrollHeight && page <= 8) {
-      setPage((prev) => prev + 2);
-    }
-  };
-
   useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const scrollTop = document.documentElement.scrollTop;
+      const clientHeight = document.documentElement.clientHeight;
+      if (scrollTop + clientHeight >= scrollHeight && page <= 8) {
+        setTimeout(
+          setPage((prev) => prev + 2),
+          700
+        );
+      }
+    };
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  });
+  }, [page]);
 
   return (
     <body>
