@@ -5,6 +5,22 @@ import { useNavigate } from "react-router-dom";
 function LoginPark() {
   const navigate = useNavigate();
   const goToMain = () => {
+    // fetch("http://52.79.143.176:8000/users/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     email: userId,
+    //     password: userPw,
+    //   }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((result) =>
+    //     result.token !== undefined
+    //       ? navigate("/main-park")
+    //       : alert(result.message)
+    //   );
     navigate("/main-park");
   };
   const [userId, setUserId] = useState("");

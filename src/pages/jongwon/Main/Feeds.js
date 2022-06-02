@@ -1,6 +1,17 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
 import Comments from "./Comments";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faHeart,
+  faComment,
+  faShareFromSquare,
+  faBookmark,
+  faTrashCan,
+} from "@fortawesome/free-regular-svg-icons";
+
+library.add(faHeart, faComment, faShareFromSquare, faBookmark, faTrashCan);
 
 const Feeds = (props) => {
   const [commentlist, setCommentlist] = useState(props.commentList);
@@ -19,14 +30,15 @@ const Feeds = (props) => {
     }
   };
   const uploadComment = () => {
-    setCommentlist([
-      ...commentlist,
-      { userName: "2seul2", content: inputText },
-    ]);
+    setCommentlist([...commentlist, { name: "2seul2", content: inputText }]);
     setInputText("");
     setIsValid(false);
   };
+  const [likeBtn, setLikeBtn] = useState(false);
 
+  const likeBtnactivation = () => {
+    setLikeBtn(!likeBtn);
+  };
   return (
     <>
       <article>
@@ -41,11 +53,16 @@ const Feeds = (props) => {
         <div className="feedbottom">
           <div className="feedbottom-iconwrapper">
             <div className="feedbottom-icons">
-              <i className="fa-solid fa-heart"></i>
-              <i className="fa-regular fa-comment"></i>
-              <i className="fa-solid fa-heart"></i>
+              <FontAwesomeIcon
+                icon="fa-regular fa-heart"
+                className="likeBtn"
+                onClick={likeBtnactivation}
+                style={{ color: likeBtn ? "red" : "gray" }}
+              />
+              <FontAwesomeIcon icon="fa-regular fa-comment" />
+              <FontAwesomeIcon icon="fa-regular fa-share-from-square" />
             </div>
-            <i className="fa-regular fa-bookmark"></i>
+            <FontAwesomeIcon icon="fa-regular fa-bookmark" />
           </div>
           <div className="profile">
             <img src={props.likedImage} />
@@ -61,12 +78,7 @@ const Feeds = (props) => {
             </div>
             <div className="comment-wrapper">
               <div className="commentlist">
-                <div className="comment-content-wrapper">
-                  <div className="username-content">
-                    <span className="username">real9 </span> 사랑하는거 알지?
-                  </div>
-                  <i className="fa-regular fa-heart"></i>
-                </div>
+                <div className="comment-content-wrapper"></div>
               </div>
               {commentlist.map((oneComment) => {
                 return (

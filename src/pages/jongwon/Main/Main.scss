@@ -67,7 +67,9 @@ nav {
   align-items: center;
   img {
     width: 40px;
+    height: 40px;
     border-radius: 100%;
+    margin-right: 8px;
   }
 }
 
@@ -106,11 +108,12 @@ article {
   }
 }
 .fa-heart {
-  color: red;
+  color: gray;
 }
 .comment-content-wrapper {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
   align-items: center;
   .fa-heart {
     font-size: 15px;
@@ -121,7 +124,20 @@ article {
   .profile {
     img {
       width: 30px;
+      height: 30px;
+      border-radius: 100%;
     }
+    .liketrashbtn {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  .fa-trash-can {
+    margin-left: 5px;
+    font-size: 13px;
+  }
+  .caption {
+    margin-bottom: 5px;
   }
 }
 .description {

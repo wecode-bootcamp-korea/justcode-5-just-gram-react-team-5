@@ -2,7 +2,17 @@
 import "./Main.scss";
 import React, { useState, useEffect } from "react";
 import Feeds from "./Feeds";
-import Comments from "./Comments";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faHeart,
+  faComment,
+  faShareFromSquare,
+  faBookmark,
+  faTrashCan,
+} from "@fortawesome/free-regular-svg-icons";
+library.add(faHeart, faComment, faShareFromSquare, faBookmark, faTrashCan);
+
 function MainPark() {
   const [feeds, setFeeds] = useState([]);
   useEffect(() => {
@@ -12,8 +22,24 @@ function MainPark() {
   }, []);
 
   const [commentlist, setCommentlist] = useState([
-    { userName: "chubbychubby", content: "귀여워잉" },
+    { name: "chubbychubby", content: "귀여워잉" },
   ]);
+  const [likeBtn, setLikeBtn] = useState(false);
+
+  const likeBtnactivation = () => {
+    setLikeBtn(!likeBtn);
+  };
+  const [deleteBtn, setdeleteBtn] = useState(false);
+  const deleteComment = () => {
+    setdeleteBtn(true);
+    deleteCommentFeed();
+  };
+  const deleteCommentFeed = () => {
+    if (deleteBtn === true) {
+      return <></>;
+    }
+  };
+
   const [inputText, setInputText] = useState("");
   const [isValid, setIsValid] = useState(false);
 
@@ -81,11 +107,16 @@ function MainPark() {
             <div className="feedbottom">
               <div className="feedbottom-iconwrapper">
                 <div className="feedbottom-icons">
-                  <i className="fa-solid fa-heart"></i>
-                  <i className="fa-regular fa-comment"></i>
-                  <i className="fa-solid fa-heart"></i>
+                  <FontAwesomeIcon
+                    icon="fa-regular fa-heart"
+                    className="likeBtn"
+                    onClick={likeBtnactivation}
+                    style={{ color: likeBtn ? "red" : "gray" }}
+                  />
+                  <FontAwesomeIcon icon="fa-regular fa-comment" />
+                  <FontAwesomeIcon icon="fa-regular fa-share-from-square" />
                 </div>
-                <i className="fa-regular fa-bookmark"></i>
+                <FontAwesomeIcon icon="fa-regular fa-bookmark" />
               </div>
               <div className="profile">
                 <img src="https://ilovegangwon.com/data/file/humor/16081758443386.jpg" />
@@ -106,19 +137,20 @@ function MainPark() {
                         <span className="username">real9 </span> 사랑하는거
                         알지?
                       </div>
-                      <i className="fa-regular fa-heart"></i>
+                      <div className="liketrashbtn">
+                        <FontAwesomeIcon
+                          icon="fa-regular fa-heart"
+                          className="likeBtn"
+                          onClick={likeBtnactivation}
+                          style={{ color: likeBtn ? "red" : "gray" }}
+                        />
+                        <FontAwesomeIcon
+                          icon="fa-regular fa-trash-can"
+                          onClick={deleteComment}
+                        />
+                      </div>
                     </div>
                   </div>
-                  {commentlist.map((oneComment) => {
-                    return (
-                      <Comments
-                        key={oneComment.id}
-                        userName={oneComment.name}
-                        content={oneComment.content}
-                        isLiked={oneComment.isLiked}
-                      />
-                    );
-                  })}
                 </div>
                 <div className="description">1시간전</div>
               </div>
