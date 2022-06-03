@@ -25,11 +25,7 @@ function Feed() {
   };
 
   const onClickLikeBtn = (num) => {
-    setFeeds(
-      feeds.map((feed) =>
-        feed.id === num + 1 ? { ...feed, isLiked: !feed.isLiked } : feed
-      )
-    );
+    setFeeds([...feeds], (feeds[num].isLiked = !feeds[num].isLiked));
   };
 
   const isLikedBtn = (feed) => {
@@ -96,7 +92,7 @@ function Feed() {
                 이 좋아합니다.
               </div>
 
-              <Comment feed={feed} />
+              <Comment feed={feed} feeds={feeds} setFeeds={setFeeds} num={num} />
 
               <div className="upload-time">
                 <span>42분</span> 전
@@ -109,7 +105,11 @@ function Feed() {
                 type="text"
                 placeholder="댓글 달기..."
                 onChange={(e) => {
-                  setNewComment({ ...newComment, content: e.target.value });
+                  setNewComment({
+                    ...newComment,
+                    content: e.target.value,
+                    id: feed.commentList.length + 1,
+                  });
                 }}
                 onKeyUp={(e) => {
                   if (e.key == "Enter") {
@@ -122,8 +122,7 @@ function Feed() {
                 type="button"
                 onClick={() => {
                   addNewComment(num);
-                }}
-              >
+                }}>
                 게시
               </button>
             </div>
