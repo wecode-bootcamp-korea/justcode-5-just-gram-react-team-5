@@ -16,15 +16,27 @@ function Feed() {
     id: "",
     name: "jihyeon-kimy",
     content: "",
-    isLiked: false
+    isLiked: false,
   });
 
-  const [inputText, setInputText] = useState("");
-
   const addNewComment = (num) => {
-    let copyFeeds = [...feeds];
-    copyFeeds[num].commentList.push(newComment);
-    setFeeds(copyFeeds);
+    setFeeds([...feeds], feeds[num].commentList.push(newComment));
+    setNewComment({ ...newComment, content: "" });
+  };
+
+  const onClickLikeBtn = (num) => {
+    setFeeds(
+      feeds.map((feed) =>
+        feed.id === num + 1 ? { ...feed, isLiked: !feed.isLiked } : feed
+      )
+    );
+  };
+
+  const isLikedBtn = (feed) => {
+    if (feed.isLiked === true) {
+      return <i className="fa-solid fa-heart fa-lg" style={{ color: "tomato" }}></i>;
+    }
+    return <i className="fa-regular fa-heart fa-lg"></i>;
   };
 
   return (
@@ -51,8 +63,8 @@ function Feed() {
             <div className="feed-content">
               <div className="feed-buttons">
                 <div>
-                  <button type="button">
-                    <i className="fa-regular fa-heart fa-lg"></i>
+                  <button onClick={() => onClickLikeBtn(num)} type="button">
+                    {isLikedBtn(feed)}
                   </button>
                   <button type="button">
                     <i className="fa-regular fa-comment fa-lg"></i>
@@ -68,7 +80,11 @@ function Feed() {
 
               <div className="like">
                 <a href="">
-                  <img className="user-img-s" src={feed.likeUser.image} alt="user profile" />
+                  <img
+                    className="user-img-s"
+                    src={feed.likeUser.image}
+                    alt="user profile"
+                  />
                 </a>
                 <a className="feed-bold-txt" href="">
                   {feed.likeUser.name}
@@ -80,17 +96,7 @@ function Feed() {
                 이 좋아합니다.
               </div>
 
-              <div>
-                <ul className="comment-list">
-                  {feed.commentList.map((a, i) => {
-                    return (
-                      <div key={i}>
-                        <Comment info={a} />
-                      </div>
-                    );
-                  })}
-                </ul>
-              </div>
+              <Comment feed={feed} />
 
               <div className="upload-time">
                 <span>42분</span> 전
@@ -99,26 +105,25 @@ function Feed() {
 
             <div className="comment-box">
               <input
-                value={inputText}
+                value={newComment.content}
                 type="text"
                 placeholder="댓글 달기..."
                 onChange={(e) => {
-                  setInputText(e.target.value);
                   setNewComment({ ...newComment, content: e.target.value });
                 }}
                 onKeyUp={(e) => {
                   if (e.key == "Enter") {
                     addNewComment(num);
-                    setInputText("");
                   }
                 }}
               />
+
               <button
                 type="button"
                 onClick={() => {
                   addNewComment(num);
-                  setInputText("");
-                }}>
+                }}
+              >
                 게시
               </button>
             </div>
