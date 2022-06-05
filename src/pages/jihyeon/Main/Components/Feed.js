@@ -12,6 +12,12 @@ function Feed() {
       });
   }, []);
 
+  const [inputComment, setInputComment] = useState();
+
+  useEffect(() => {
+    setInputComment(new Array(feeds.length).fill(""));
+  }, [feeds]);
+
   const [newComment, setNewComment] = useState({
     id: "",
     name: "jihyeon-kimy",
@@ -22,6 +28,7 @@ function Feed() {
   const addNewComment = (num) => {
     setFeeds([...feeds], feeds[num].commentList.push(newComment));
     setNewComment({ ...newComment, content: "" });
+    setInputComment([...inputComment, (inputComment[num] = "")]);
   };
 
   const onClickLikeBtn = (num) => {
@@ -101,10 +108,14 @@ function Feed() {
 
             <div className="comment-box">
               <input
-                value={newComment.content}
+                value={inputComment[num] || ""}
                 type="text"
                 placeholder="댓글 달기..."
                 onChange={(e) => {
+                  let copy = inputComment;
+                  copy[num] = e.target.value;
+                  setInputComment(copy);
+
                   setNewComment({
                     ...newComment,
                     content: e.target.value,
