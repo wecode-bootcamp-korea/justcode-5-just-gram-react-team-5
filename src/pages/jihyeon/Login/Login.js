@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 
 function LoginKim() {
-  // 1. ID와 PW 인풋에 적은 내용을 useState에 저장
   const [idPw, setIdPw] = useState({
     id: "",
-    pw: ""
+    pw: "",
   });
 
   const { id, pw } = idPw;
@@ -15,18 +14,30 @@ function LoginKim() {
     const { value, name } = e.target;
     setIdPw({
       ...idPw,
-      [name]: value
+      [name]: value,
     });
   };
 
-  // 2. 로그인 버튼을 누를 경우, main 페이지로 이동
   const navigate = useNavigate();
 
   const goToMain = () => {
     navigate("/main-kim");
   };
 
-  // 3. 로그인 버튼 활성화
+  // const confirmIdPW = () => {
+  //   fetch("http://52.79.143.176:8000/users/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       email: id,
+  //       password: pw
+  //     })
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => console.log("결과: ", result));
+  // }
 
   let [validation, setValidation] = useState(true);
 
@@ -46,10 +57,33 @@ function LoginKim() {
     <div className="body">
       <section className="login-box">
         <h1 className="title">justgram</h1>
-        <input className="id input writing" type="text" placeholder="전화번호, 사용자 이름 또는 이메일" onKeyUp={btnValidation} onChange={handleIdPw} value={id} name="id" />
-        <input className="pw input" type="password" placeholder="비밀번호" onKeyUp={btnValidation} onChange={handleIdPw} value={pw} name="pw" />
+        <input
+          className="id input writing"
+          type="text"
+          placeholder="전화번호, 사용자 이름 또는 이메일"
+          onKeyUp={btnValidation}
+          onChange={handleIdPw}
+          value={id}
+          name="id"
+        />
+        <input
+          className="pw input"
+          type="password"
+          placeholder="비밀번호"
+          onKeyUp={btnValidation}
+          onChange={handleIdPw}
+          value={pw}
+          name="pw"
+        />
 
-        <button className={validation ? "login-button-inactive" : "login-button-active"} disabled={validation} type="button" onClick={goToMain}>
+        <button
+          className={validation ? "login-button-inactive" : "login-button-active"}
+          disabled={validation}
+          type="button"
+          onClick={(event) => {
+            event.preventDefault();
+            goToMain();
+          }}>
           로그인
         </button>
         <a className="forgot-password" href="">

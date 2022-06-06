@@ -1,13 +1,29 @@
 import React from "react";
 
 function Aside() {
-  const footerList = ["Instagram정보", "지원", "홍보 센터", "API", "채용 정보", "개인정보처리방침", "약관", "디렉토리", "프로필", "해시태그", "언어"];
+  const footerList = [
+    "Instagram정보",
+    "지원",
+    "홍보 센터",
+    "API",
+    "채용 정보",
+    "개인정보처리방침",
+    "약관",
+    "디렉토리",
+    "프로필",
+    "해시태그",
+    "언어",
+  ];
 
   return (
     <div className="main-right">
       <aside className="user-info">
         <a href="">
-          <img className="user-img-l" src="./images/jihyeon/user_3_img.jpg" alt="유저 이미지" />
+          <img
+            className="user-img-l"
+            src="./images/jihyeon/user_3_img.jpg"
+            alt="유저 이미지"
+          />
         </a>
         <div>
           <a className="user-name feed-bold-txt" href="">
@@ -30,7 +46,11 @@ function Aside() {
             return (
               <li className="side-list-img" key={i}>
                 <a className="side-list-img-deco" href="">
-                  <img className="user-img-side-1" src="./images/jihyeon/user_4_img.jpg" alt="유저 이미지" />
+                  <img
+                    className="user-img-side-1"
+                    src="./images/jihyeon/user_4_img.jpg"
+                    alt="유저 이미지"
+                  />
                 </a>
                 <div className="side-list-info">
                   <a className="feed-bold-txt" href="">
@@ -57,7 +77,11 @@ function Aside() {
             return (
               <li className="side-list-img" key={i}>
                 <a href="">
-                  <img className="user-img-side-2" src="./images/jihyeon/user_4_img.jpg" alt="유저 이미지" />
+                  <img
+                    className="user-img-side-2"
+                    src="./images/jihyeon/user_4_img.jpg"
+                    alt="유저 이미지"
+                  />
                 </a>
                 <div className="side-list-info">
                   <a className="feed-bold-txt" href="">
