@@ -1,8 +1,7 @@
-import React from 'react';
-import './Comments.scss';
+import React from "react";
+import "./Comments.scss";
 
-  function Comments({ comment }) {  
-
+function Comments({ comment }) {
   return (
     // <div className="feed-commentlist">
     // <div className="feed-comments" key={comment.id}>
@@ -12,14 +11,11 @@ import './Comments.scss';
     // </div>
     <div className="new_comment">
       <p>
-        {<span className="bold">Smiles</span>}
+        <span className="bold">Smiles</span>
         {comment}
       </p>
     </div>
-
-    );
-    
-};
+  );
+}
 
 export default Comments;
-

@@ -1,52 +1,50 @@
-import "./Login.scss";
 import React, { useState } from "react";
-// import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "./Login.scss";
 
 function LoginSon() {
-  //   const navigate = useNavigate();
-  const [identify, setIdentify] = useState("");
-  const [password, setPassword] = useState("");
+  //ID, PW input의 사용자 입력값을 useState에 저장
+  const [userInfo, setUserInfo] = useState({ id: "", pw: "" });
 
-  const validation = (idText, pwText) => {
-    if (!idText.includes("@")) {
-      return false;
-    }
-    if (pwText.length < 7) {
-      return false;
-    }
+  const { id, pw } = userInfo;
 
-    return true;
+  const handleIdPw = (e) => {
+    const { value, name } = e.target;
+    setUserInfo({ ...userInfo, [name]: value });
   };
 
-  //   const buttonOnClick = () => {
-  //     if (validation(identify, password)) {
-  //       alert('로그인 되었습니다.');
-  //       navigate('/main-son');
-  //     } else {
-  //       alert('로그인에 실패하였습니다.');
-  //       setIdentify('');
-  //       setPassword('');
-  //     }
-  //   };
+  //로그인 버튼 onclick -> main 페이지로 이동
+  const navigate = useNavigate();
 
-  const buttonOnClick = (event) => {
-    event.preventDefault();
-    console.log(1);
-    fetch("http://52.79.143.176:8000/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: identify,
-        password: password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((result) => console.log("결과: ", result));
+  const goToMain = () => {
+    navigate("/main-Son");
   };
 
-  const valid = validation(identify, password);
+  //   const goToMain = (event) => {
+  //   event.preventDefault();
+  //   fetch("http://52.79.143.176:8000/users/login", {
+  //     method: "POST",
+  //     headers: {"Content-Type": "application/json",},
+  //     body: JSON.stringify({email: userInfo.id, password: userInfo.pw,}),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => console.log("결과: ", result));
+  // };
+
+  //로그인 버튼 비활성화
+  let [validation, setValidation] = useState(false);
+
+  const btnValidation = (e) => {
+    const { value, name } = e.target;
+
+    if (name === "id" && value.includes("@") && pw.length > 5) {
+      setValidation(true);
+    } else if (name === "pw" && value.length > 5 && id.includes("@")) {
+      setValidation(true);
+    } else {
+      setValidation(false);
+    }
+  };
 
   return (
     <div className="Login">
@@ -61,30 +59,26 @@ function LoginSon() {
                 <div className="id-box">
                   <div className="id-input-box">
                     <input
-                      className="login_input"
-                      name="identify"
+                      className="id_input"
                       type="email"
                       placeholder="전화번호,사용자 이름 또는 이메일"
-                      value={identify}
-                      onChange={(event) => {
-                        setIdentify(event.target.value);
-                      }}
+                      onKeyUp={btnValidation}
+                      onChange={handleIdPw}
+                      value={id}
+                      name="id"
                     />
                   </div>
                 </div>
-
                 <div className="pw-box">
                   <div className="pw-input-box">
                     <input
-                      className="login_input"
-                      name="password"
+                      className="pw_input"
                       type="password"
-                      minLength={5}
                       placeholder="비밀번호"
-                      value={password}
-                      onChange={(event) => {
-                        setPassword(event.target.value);
-                      }}
+                      onKeyUp={btnValidation}
+                      onChange={handleIdPw}
+                      value={pw}
+                      name="pw"
                     />
                   </div>
                 </div>
@@ -92,10 +86,13 @@ function LoginSon() {
                 <div className="login-button-box">
                   <button
                     className={
-                      valid ? "login-button active" : "login-button inactive"
+                      validation
+                        ? "login-button active"
+                        : "login-button inactive"
                     }
-                    disabled={!valid}
-                    onClick={buttonOnClick}
+                    type="submit"
+                    disabled={!validation}
+                    onClick={goToMain}
                   >
                     로그인
                   </button>
@@ -120,8 +117,7 @@ function LoginSon() {
               </div>
 
               <div href="" className="pw-finder">
-                {" "}
-                비밀번호를 잊으셨나요?{" "}
+                비밀번호를 잊으셨나요?
               </div>
             </form>
           </div>
