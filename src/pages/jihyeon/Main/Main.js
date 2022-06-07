@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import Header from "./Components/header";
+import Feed from "./Components/Feed";
+import Aside from "./Aside/Asid";
+import "./Main.scss";
 
-function MainKim () {
-    return(
-        <div>
-
-        </div>
-    )
+function MainKim() {
+  return (
+    <>
+      <Header />
+      <main className="feeds">
+        <Feed />
+        <Aside />
+      </main>
+    </>
+  );
 }
 
 export default MainKim;
