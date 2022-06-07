@@ -1,10 +1,18 @@
 import React from "react";
 
-const Comment = ({ comment }) => {
+const Comment = ({ id, comment, onRemove }) => {
   return (
-    <p>
+    <p key={id}>
       {<span className="bold">아이디</span>}
       {comment}
+      <button
+        className="delete-btn"
+        onClick={() => {
+          onRemove(comment.id);
+        }}
+      >
+        <i className="fa-solid fa-xmark"></i>
+      </button>
     </p>
   );
 };

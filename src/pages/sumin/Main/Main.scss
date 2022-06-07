@@ -160,14 +160,17 @@ $border-style: 1px solid #e6e6e6;
 
   .comment__button-group {
     @include flex-space-between;
+    span:nth-child(1) {
+      button:nth-child(1) {
+        padding-left: 0;
+      }
+    }
     i {
       color: #8e8e8e;
       font-size: 24px;
     }
     .button__icon-like {
-      i {
-        color: #eb4b59;
-      }
+      color: #eb4b59;
     }
   }
 }
@@ -212,7 +215,17 @@ $border-style: 1px solid #e6e6e6;
     margin-right: 5px;
   }
   p {
+    position: relative;
     margin-top: 10px;
+    .delete-btn {
+      position: absolute;
+      right: 0;
+      padding-right: 0;
+      i {
+        color: #8e8e8e;
+        font-size: 12px;
+      }
+    }
   }
 }
 
@@ -234,7 +247,10 @@ $border-style: 1px solid #e6e6e6;
 
 /* ------------------------- main-sidebar ---- */
 .main-sidebar {
+  position: sticky;
+  top: 120px;
   width: 310px;
+  height: 650px;
 }
 
 .sidebar__common {

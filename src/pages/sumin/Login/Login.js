@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.scss";
 
@@ -7,6 +7,11 @@ function LoginSeo() {
   const moveToMain = () => {
     navigate("/main-seo");
   };
+
+  const inputRef = useRef();
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const [inputs, setInputs] = useState({
     userId: "",
@@ -65,6 +70,7 @@ function LoginSeo() {
               placeholder="전화번호, 사용자 이름 또는 이메일"
               value={userId}
               onChange={handleInputs}
+              ref={inputRef}
             />
           </div>
           <div className="login__pw-box">

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Comment from "./Comment";
 
 function Feed({ data }) {
   const [comment, setComment] = useState("");
-  const [space, setSpace] = useState([]);
+  const [commentArray, setCommentArray] = useState([]);
 
   function inputText(event) {
     setComment(event.target.value);
@@ -11,11 +11,28 @@ function Feed({ data }) {
 
   const enterBtn = (event) => {
     if (event.key === "Enter") {
-      setSpace((prevComment) => {
+      setCommentArray((prevComment) => {
         return [...prevComment, comment];
       });
+      setComment("");
+    } else {
+      setComment(event.target.value);
     }
-    setComment("");
+  };
+
+  const onRemove = (id) => {
+    const newCommentArray = [];
+    for (let i = 0; i < commentArray.length; i++) {
+      if (commentArray[i].id !== id) {
+        newCommentArray.push(commentArray[i]);
+      }
+    }
+    setCommentArray(newCommentArray);
+  };
+
+  const [contentLikeIcon, SetContentLikeIcon] = useState(false);
+  const likeBtnClick = () => {
+    SetContentLikeIcon(!contentLikeIcon);
   };
 
   return (
@@ -41,19 +58,23 @@ function Feed({ data }) {
       <div className="feed__comment-group">
         <div className="comment__button-group">
           <span>
-            <button className="button__icon-like">
-              <i className="fa-solid fa-heart"></i>
+            <button onClick={likeBtnClick}>
+              {contentLikeIcon ? (
+                <i className="fa-regular fa-heart"></i>
+              ) : (
+                <i className="fa-solid fa-heart button__icon-like"></i>
+              )}
             </button>
-            <button className="button__icon-comment">
-              <i className="fa-regular fa-comment fa-flip-horizontal"></i>
+            <button>
+              <i className="fa-regular fa-comment fa-flip-horizontal button__icon-comment"></i>
             </button>
-            <button className="button__icon-share">
-              <i className="fa-solid fa-arrow-up-from-bracket"></i>
+            <button>
+              <i className="fa-solid fa-arrow-up-from-bracket button__icon-share"></i>
             </button>
           </span>
           <span>
-            <button className="button__icon-bookmark">
-              <i className="fa-regular fa-bookmark"></i>
+            <button>
+              <i className="fa-regular fa-bookmark button__icon-bookmark"></i>
             </button>
           </span>
         </div>
@@ -86,8 +107,8 @@ function Feed({ data }) {
                 </p>
               );
             })}
-            {space.map((comment, data) => {
-              return <Comment key={data.id} comment={comment} />;
+            {commentArray.map((comment, id) => {
+              return <Comment key={id} comment={comment} onRemove={onRemove} />;
             })}
           </div>
         </div>
@@ -104,7 +125,7 @@ function Feed({ data }) {
         <button
           className="comment__write-btn"
           onClick={() => {
-            setSpace((prevComment) => {
+            setCommentArray((prevComment) => {
               return [...prevComment, comment];
             });
             setComment("");
