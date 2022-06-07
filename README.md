@@ -48,5 +48,5 @@
 - 박종원 : [종원님 블로그](https://velog.io/@yejikang/westagram-인스타그램-클론코딩-후기)
 - 서수민 : [수민님 블로그](http://psy082.github.io/)
 - 김지현 : [지현님 블로그](http://aleatorik.github.io/)
-- 손소희 : [소희님 블로그](https://velog.io/@dbgnlcks34/Instagram-clone-miniproject-Westagram)
+- 손소희 : [소희님 블로그](https://sophie0527.tistory.com/)
 - 유광현 : [광현님 블로그](https://velog.io/@yejikang/westagram-인스타그램-클론코딩-후기)
