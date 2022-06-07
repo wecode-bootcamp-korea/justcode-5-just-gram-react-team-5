@@ -1,0 +1,259 @@
+$border-style-black: 1px black solid;
+$border-style-ltgrey: 1px #e6e6e6 solid;
+
+@mixin flex-center {
+	display: flex;
+	justify-content: center;
+    align-items: center
+}
+
+
+@mixin story-box {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+@mixin story-box-img {
+    display: flex;
+    align-items: center;
+    width: 50px; 
+}   
+
+@mixin story-profile-text {
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+
+@mixin recommend-box {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+@mixin recommend-box-img {
+    display: flex;
+    align-items: center;
+    width: 50px;
+}   
+
+@mixin recommend-text {
+    padding-left: 10px;
+    align-items: center;
+    width: 165px;
+    text-decoration: none;
+} 
+
+@mixin recommend-button {
+    font-size: 14px;
+    text-decoration: none;
+    color:#0798f6;
+    text-align: right;
+    border: 0px ;
+    background-color: white;
+} 
+
+
+.feed_container {
+    height: 870px;
+    width: 614px;
+    border: 1.8px solid #e6e6e6;
+    border-radius: 5px;
+    background-color: white;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/*--피드상단--*/
+
+.feed_header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        display: flex;
+        align-items: center;
+        font-size: 17px;
+        font-weight: bold;
+        padding-left: 15px;
+        color: black;
+        text-decoration: none;
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 70%;
+            overflow: hidden;
+            }
+
+        .feed_profile_name {
+            padding-left: 13px;
+            }
+
+        button {
+            border: 0;
+            width: 50px;
+            padding: 0;
+            background-color: white;
+            margin: 10px;
+            }
+
+            img {
+                width: 20px;
+                height: 20px;
+                }
+
+}
+
+/*--피드이미지--*/
+
+.feed_image {
+    img{
+    width: 614px;
+    height: 614px;
+    display: flex;
+    object-fit: cover;
+    position: relative;
+    overflow: hidden;
+    }
+}
+
+/*--피드하단--*/
+
+.feed_contents{
+    align-items: center;
+}
+
+.button_group{
+    display: flex;
+    justify-content: space-between;
+    width: 614px;
+
+    .button_left_group {
+        @include flex-center;
+
+        button {
+            border: 0;
+            width: 25px;
+            height: 25px;
+            padding: 0;
+            background-color: white;
+            margin: 10px;
+
+            img {
+                height: 25px;
+                }
+            }
+    }
+
+    .button_right_group {
+
+        button {
+        border: 0;
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        background-color: white;
+        margin: 10px;
+        
+        img {
+            height: 25px;
+            }
+        }
+    }
+
+}
+
+.like_sentence {
+    display: flex;
+    align-items: center;    
+    padding-left: 13px;
+    padding-bottom: 7px;
+    padding-top: 1px;
+
+    div {
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 70%;
+            overflow: hidden;
+            }
+        }
+
+    .bold {
+        padding-left: 8px;
+        font-weight: bold;
+        }
+};
+
+
+
+.comment_group {
+    padding-left: 13px;
+    padding-bottom: 13px;
+    height: 50px;
+
+    .feed_text{
+    padding-bottom: 5px;
+        
+        .feed_user_name{
+        font-weight: bold;
+        }
+
+        .feed_veiw_more{
+            color : #757575;
+            padding-left: 5px;
+            }
+    }
+
+    .comment_text{
+    height: 30px;
+    
+        .basic_comment{
+            span{
+                padding-right: 5px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.comment_date{
+    color : #757575;
+    font-size:smaller;
+    }
+
+.write_comment {
+    border-top: $border-style-ltgrey;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+
+    .comment_input {
+        font-size: 17px;
+        border: 0px ;
+        background-color: white;
+        width: 450px;
+    }
+
+    .write_comment_button {
+        font-size: 17px;
+        text-decoration: none;
+        color:#0798f6;
+        text-align: right;
+        border: 0px ;
+        background-color: white;
+    }
+}
