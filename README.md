@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Justgram!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-----------
 
-## Available Scripts
+> React로 만든 인스타그램 클론 코딩 프로젝트
+## 🖥  프로젝트 
+<p align="center">
+<img alt="[로그인이미지]" src ="https://ifh.cc/g/T0yYTA.jpg" style = "width: 500px">
 
-In the project directory, you can run:
+<img alt="[메인페이지]" src ="https://ifh.cc/g/rnWA1g.jpg"> </p>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **주제**: React를 사용한 Instagram clone
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  - CRA를 사용한 초기 세팅
+  - 5명의 팀원들이 공동 component, scss 사용 및 관리
+  - git을 사용한 첫 번째 협업
 
-### `npm test`
+- 📅 **프로젝트 기간** 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ​	2022.05.23 ~ 06.05
 
-### `npm run build`
+## 👨‍💻 팀 원 별 작업 현황
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **공통**
+  - 로그인 페이지 레이아웃
+  - id, pw 입력 시 로그인 버튼 활성화 기능
+  - 메인 페이지 레이아웃
+  - 댓글 내용 입력 후 Enter press, 혹은 게시 버튼 클릭 시 댓글 추가 기능
+  - 문자 입력 시 게시 버튼 활성화 기능
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **박종원** 
+  - 피드 좋아요, 댓글 좋아요/삭제 기능 추가
+ 
+- **유광현** 
+  - 댓글 삭제, 인피니트 스크롤 기능 추가
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 🔧  기술 스택
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- HTML,CSS
+- JavaScript(ES6+)
+- React
+- SCSS
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📕 팀원정보
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 박종원 : [종원님 블로그](https://velog.io/@yejikang/westagram-인스타그램-클론코딩-후기)
+- 서수민 : [수민님 블로그](http://psy082.github.io/)
+- 김지현 : [지현님 블로그](http://aleatorik.github.io/)
+- 손소희 : [소희님 블로그](https://velog.io/@dbgnlcks34/Instagram-clone-miniproject-Westagram)
+- 유광현 : [광현님 블로그](https://velog.io/@yejikang/westagram-인스타그램-클론코딩-후기)
