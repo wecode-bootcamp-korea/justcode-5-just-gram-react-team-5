@@ -1,0 +1,21 @@
+.main-feed-comment-wrapper {
+  &:hover .main-feed-comment-delete {
+    opacity: 1;
+  }
+  margin-left: 10px;
+  margin-bottom: 3px;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+.main-feed-comment-delete {
+  opacity: 0;
+  border: none;
+  background-color: transparent;
+  color: gray;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: rotate(-180deg);
+  }
+}
