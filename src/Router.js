@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import LoginPark from "./pages/jongwon/Login/Login";
-import MainPark from "./pages/jongwon/Main/Main";
 import LoginKim from "./pages/jihyeon/Login/Login";
 import MainKim from "./pages/jihyeon/Main/Main";
+import LoginPark from "./pages/jongwon/Login/Login";
+import MainPark from "./pages/jongwon/Main/Main";
 import LoginYu from "./pages/kwanghyun/Login/Login";
 import MainYu from "./pages/kwanghyun/Main/Main";
 import LoginSon from "./pages/sohee/Login/Login";
@@ -14,7 +14,6 @@ import MainSeo from "./pages/sumin/Main/Main";
 function Router() {
   return (
     <Routes>
-      <Route path="/main-park" element={<MainPark />} />
       <Route path="/login-kim" element={<LoginKim />} />
       <Route path="/main-kim" element={<MainKim />} />
       <Route path="/login-park" element={<LoginPark />} />
