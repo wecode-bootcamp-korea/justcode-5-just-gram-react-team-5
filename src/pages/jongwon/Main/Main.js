@@ -36,7 +36,7 @@ function MainPark() {
   };
   const deleteCommentFeed = () => {
     if (deleteBtn === true) {
-      return <></>;
+      return null;
     }
   };
 
@@ -55,7 +55,7 @@ function MainPark() {
     }
   };
   const uploadComment = () => {
-    setCommentlist([...commentlist, { name: "2seul2", content: inputText }]);
+    setCommentlist([{ ...commentlist, name: "2seul2", content: inputText }]);
     setInputText("");
     setIsValid(false);
   };
