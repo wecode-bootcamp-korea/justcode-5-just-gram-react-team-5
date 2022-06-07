@@ -1,0 +1,105 @@
+/* login.scss */
+
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+$theme-line-color: #e8e8e8;
+$border-style: 1px solid $theme-line-color;
+
+@mixin btn-common-style {
+  width: 100%;
+  margin-top: 20px;
+  padding: 7px 7px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-center-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login__wrapper {
+  @include flex-center;
+  width: 100%;
+  height: 100vh;
+  font-size: 10px;
+}
+
+.login__wrap {
+  @include flex-center-column;
+  width: 400px;
+  background-color: #fff;
+  border: $border-style;
+}
+
+.login__logo {
+  margin: 40px 0;
+  color: #262626;
+  font-family: "Lobster", cursive;
+  font-size: xxx-large;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.login__form {
+  @include flex-center-column;
+  margin: 10px 0 100px 0;
+
+  input {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: #fafafa;
+  }
+}
+
+.login__id-box,
+.login__pw-box {
+  width: 250px;
+  outline: none;
+  border: $border-style;
+  border-radius: 3px;
+}
+.login__pw-box {
+  margin-top: 6px;
+}
+
+.login__btn {
+  @include btn-common-style;
+  background-color: rgba(0, 149, 246, 0.3);
+  cursor: text;
+
+  &:hover {
+    color: #fff;
+  }
+  &-inactive {
+    @include btn-common-style;
+    background-color: rgba(0, 149, 246, 0.3);
+    cursor: text;
+  }
+  &-active {
+    @include btn-common-style;
+    background-color: rgba(0, 149, 246, 1);
+    cursor: pointer;
+  }
+}
+
+.login__footer {
+  margin: 35px 0;
+
+  a {
+    color: #043667;
+    font-size: 1.2em;
+  }
+}

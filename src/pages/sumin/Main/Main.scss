@@ -1,0 +1,350 @@
+/* main.scss */
+
+$border-style: 1px solid #e6e6e6;
+
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin flex-flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* 공통 */
+.profile-common {
+  border-radius: 100%;
+  margin-right: 10px;
+}
+.sub_txt,
+.story-time,
+.recommend-myfriend {
+  color: #8e8e8e;
+  font-size: 0.85em;
+}
+
+/* ------------------------- wrapper ---- */
+.main__wrapper {
+  font-size: 14px;
+  border-bottom: 2px solid #262626;
+  button {
+    background: none;
+  }
+  .bold {
+    font-weight: bold;
+  }
+}
+
+/* ------------------------- header ---- */
+.header {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  border-top: 2px solid #262626;
+  border-bottom: $border-style;
+  background-color: #fff;
+  z-index: 1;
+
+  &-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 935px;
+  }
+}
+
+.header__logo {
+  @include flex-align-center;
+
+  i {
+    font-size: 24px;
+  }
+
+  &-border {
+    margin: 0 12px 8px 12px;
+    font-size: x-large;
+  }
+
+  &-txt {
+    font-family: "Lobster", cursive;
+    font-size: x-large;
+  }
+}
+
+.header__search-box {
+  @include flex-align-center;
+  position: relative;
+
+  &-bar {
+    padding: 5px 10px;
+    text-align: center;
+    border: $border-style;
+    border-radius: 5px;
+    background-color: #fafafa;
+  }
+
+  button {
+    position: absolute;
+    left: 30%;
+    color: #8e8e8e;
+  }
+}
+.header__icon {
+  img {
+    width: 24px;
+    opacity: 0.7;
+  }
+  button:nth-child(2) {
+    margin: 0 10px;
+  }
+}
+
+/* ------------------------- main ---- */
+.main-feed__wrapper {
+  @include flex-space-between;
+  width: 935px;
+  margin: 120px auto;
+}
+
+/* ------------------------- main-feed---- */
+.main-feed {
+  margin-right: 10px;
+
+  &__container {
+    margin-top: 25px;
+    border: $border-style;
+    border-radius: 1px;
+    background-color: #fff;
+    &:nth-child(1) {
+      margin-top: 0;
+    }
+  }
+}
+.feed__header {
+  @include flex-space-between;
+  align-items: center;
+
+  div {
+    @include flex-align-center;
+    padding: 15px;
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+
+  button {
+    i {
+      margin-right: 3px;
+    }
+  }
+}
+.feed__photo {
+  img {
+    width: 600px;
+  }
+}
+
+.feed__comment-group {
+  padding: 10px 15px;
+
+  .comment__button-group {
+    @include flex-space-between;
+    span:nth-child(1) {
+      button:nth-child(1) {
+        padding-left: 0;
+      }
+    }
+    i {
+      color: #8e8e8e;
+      font-size: 24px;
+    }
+    .button__icon-like {
+      color: #eb4b59;
+    }
+  }
+}
+
+.comment__like-list {
+  @include flex-flex-start;
+  align-items: center;
+  padding: 10px 0;
+
+  img {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .gap {
+    margin: 0 3px;
+  }
+}
+
+.comment__contents {
+  @include flex-flex-start;
+  align-items: center;
+
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  button {
+    color: #8e8e8e;
+  }
+
+  .bold {
+    margin-right: 8px;
+  }
+}
+
+.comment__writer {
+  .bold {
+    margin-right: 5px;
+  }
+  p {
+    position: relative;
+    margin-top: 10px;
+    .delete-btn {
+      position: absolute;
+      right: 0;
+      padding-right: 0;
+      i {
+        color: #8e8e8e;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.comment__input {
+  @include flex-space-between;
+  padding: 10px 15px;
+  border-top: $border-style;
+
+  .comment__write {
+    width: 100%;
+  }
+
+  .comment__write-btn {
+    width: 50px;
+    padding: 0;
+    text-align: right;
+  }
+}
+
+/* ------------------------- main-sidebar ---- */
+.main-sidebar {
+  position: sticky;
+  top: 120px;
+  width: 310px;
+  height: 650px;
+}
+
+.sidebar__common {
+  width: 310px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fff;
+
+  ul {
+    li {
+      @include flex-align-center;
+      padding: 8px 0;
+
+      .bold {
+        margin-bottom: 4px;
+      }
+      img {
+        width: 32px;
+      }
+    }
+  }
+
+  &-header {
+    @include flex-space-between;
+    padding-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+
+    p {
+      color: #8e8e8e;
+      font-weight: 700;
+    }
+    a {
+      color: #262626;
+      font-weight: bold;
+    }
+  }
+}
+
+.sidebar__profile {
+  @include flex-flex-start;
+  align-items: center;
+  padding: 5px;
+
+  img {
+    width: 56px;
+  }
+}
+
+.sidebar__story ul li {
+  @include flex-flex-start;
+}
+.sidebar__recommend ul li {
+  @include flex-space-between;
+}
+.sidebar__story {
+  border: $border-style;
+}
+
+.sidebar__recommend {
+  margin-top: 15px;
+  border: $border-style;
+}
+
+.recommend-info {
+  @include flex-flex-start;
+
+  .recommend-txt {
+    width: 200px;
+
+    .recommend-myfriend {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+.recommend__follow-btn {
+  width: 20%;
+  text-align: right;
+  font-weight: 700;
+  font-size: 14px;
+  color: #0095f6;
+}
+
+/* ------------------------- footer ---- */
+.main__footer {
+  margin-top: 20px;
+  color: #c7c7c7;
+
+  p {
+    width: 80%;
+    margin-top: 10px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+}
